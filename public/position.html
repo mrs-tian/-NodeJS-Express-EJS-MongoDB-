@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>拉勾网管理系统</title>
+    <link rel="stylesheet" href="/styles/bootstrap.css">
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target="#response-navbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="/" class="navbar-brand">拉勾网管理系统</a>
+            </div>
+            <div class="collapse navbar-collapse" id="response-navbar">
+                <ul class="nav navbar-nav" id="nav-list">
+                    <li><a href="/">首页</a></li>
+                    <li class="active"><a href="/position">职位管理</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">你好，李圣龙</a></li>
+                    <li><a href="/api/users/signout">注销</a></li>
+                    <li><a href="#" data-toggle="modal" data-target="#signin-modal">登录</a></li>
+                    <li><a href="#" data-toggle="modal" data-target="#signup-modal">注册</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+   <div class="container" id="poslist">
+  <table class="table table-bordered">
+    <caption>职位管理 <button class="btn btn-primary" data-toggle="modal" data-target="#posadd-modal">添加</button></caption>
+    <tr>
+      <th>序号</th>
+      <th>职位名称</th>
+      <th>公司logo</th>
+      <th>公司名称</th>
+      <th>发布时间</th>
+      <th>职位薪资</th>
+    </tr>
+    
+  </table>
+  <nav aria-label="Page navigation">
+    <ul class="pagination">
+      <li>
+        <a href="/api/position/list?pageno=<%- pageNo>0 ? pageNo-1 : 0 %>" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
+     
+      <li>
+        <a href="/api/position/list?pageno=<%- pageNo<Math.ceil(count/pageSize)-1 ? pageNo+1 : pageNo %>" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>
+
+    <script src="/scripts/jquery.js"></script>
+    <script src="/scripts/bootstrap.js"></script>
+</body>
+</html>
+
